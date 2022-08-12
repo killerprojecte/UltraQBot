@@ -1,0 +1,6 @@
+name: UltraQBot
+version: '${version}'
+main: flyproject.ultraqbot.UltraQBot
+api-version: 1.13
+authors: [ FlyProject, xbaimiao ]
+description: A Bukkit Http QBot Package

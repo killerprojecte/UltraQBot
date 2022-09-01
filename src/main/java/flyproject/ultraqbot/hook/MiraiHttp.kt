@@ -1,29 +1,35 @@
-package flyproject.ultraqbot.hook;
+package flyproject.ultraqbot.hook
 
-import com.xbaimiao.mirai.event.FriendMessageEvent;
-import com.xbaimiao.mirai.event.GroupMessageEvent;
-import com.xbaimiao.mirai.eventbus.SubscribeHandler;
-import com.xbaimiao.mirai.eventbus.SubscribeListener;
-import com.xbaimiao.mirai.packet.impl.websocket.WebSocketBot;
-import com.xbaimiao.mirai.packet.impl.websocket.WsInfo;
-import flyproject.ultraqbot.entity.Group;
-import org.bukkit.Bukkit;
+import com.xbaimiao.mirai.event.FriendMessageEvent
+import com.xbaimiao.mirai.event.GroupMessageEvent
+import com.xbaimiao.mirai.eventbus.SubscribeHandler
+import com.xbaimiao.mirai.eventbus.SubscribeListener
+import com.xbaimiao.mirai.packet.impl.websocket.WebSocketBot
+import com.xbaimiao.mirai.packet.impl.websocket.WsInfo
+import flyproject.ultraqbot.UltraQBot
+import org.bukkit.Bukkit
 
-public class MiraiHttp {
-    public static void run(){
-        WsInfo wsInfo = new WsInfo("http://127.0.0.1:8099/", 123456789, "AccessKey");
-        WebSocketBot bot = new WebSocketBot(wsInfo).connect();
-        bot.join();
-        bot.getEventChancel().subscribe(new SubscribeListener() {
-            @SubscribeHandler
-            public void onGroup(GroupMessageEvent event){
-                Bukkit.getPluginManager().callEvent(new flyproject.ultraqbot.events.GroupMessageEvent(new Group(event.getGroup()),event.getMessage()));
-            }
-
-            @SubscribeHandler
-            public void onPrivate(FriendMessageEvent event){
-
-            }
-        });
+object MiraiHttp {
+    lateinit var listener: MessageListener
+    lateinit var bot: WebSocketBot
+    fun run() {
+        listener = MessageListener()
+        val wsInfo = WsInfo(UltraQBot.instance.config.getString("url")!!,
+            UltraQBot.instance.config.getLong("qq"),
+            UltraQBot.instance.config.getString("authKey")!!)
+        bot = WebSocketBot(wsInfo).connect()
+        bot.join()
+        bot.eventChancel.subscribe(listener)
+        Bukkit.getScheduler().runTaskTimerAsynchronously(UltraQBot.instance,
+            Runnable {
+                bot.eventChancel.unsubscribe(listener)
+                bot.disable()
+                if (UltraQBot.instance.config.getBoolean("reconnect_notify")){
+                    println("UltraQBot 已重新连接服务器")
+                }
+                bot = WebSocketBot(wsInfo).connect()
+                bot.join()
+                bot.eventChancel.subscribe(listener)
+            },20L * UltraQBot.instance.config.getLong("autoReconnect"),20L * UltraQBot.instance.config.getLong("autoReconnect"))
     }
 }

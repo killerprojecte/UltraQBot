@@ -1,0 +1,8 @@
+#Bot Http Config
+bot:
+  url: "http://127.0.0.1:8099/"
+  qq: 123456789
+  authKey: "AccessKey"
+#Reconnect time (Sec)
+autoReconnect: 300
+reconnect_notify: true

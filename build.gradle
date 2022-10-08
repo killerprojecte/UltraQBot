@@ -25,11 +25,11 @@ repositories {
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
-    implementation 'com.xbaimiao:mirai-http-sdk:1.0.4-alpha-f9b3815@jar'
+    implementation 'com.xbaimiao:mirai-http-sdk:1.0.4-alpha-1e59082@jar'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 1.8
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = 1.8

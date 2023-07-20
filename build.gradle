@@ -2,6 +2,8 @@ plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'maven-publish'
+    id 'java-library'
 }
 
 group = 'flyproject'
@@ -71,4 +73,30 @@ shadowJar {
     relocate("kotlinx", "dev.rgbmc.ultraqbot.libs.kotlinx")
     relocate("com.xbaimiao.mirai", "dev.rgbmc.ultraqbot.libs.mirai")
     relocate("org.java_websocket", "dev.rgbmc.ultraqbot.libs.websocket")
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    archiveClassifier = "sources"
+    from sourceSets.main.allSource
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId "dev.rgbmc"
+            artifactId "UltraQBot"
+            version = this.version
+            artifact shadowJar
+            artifact sourcesJar
+        }
+    }
+    repositories {
+        maven {
+            url = "https://repo.fastmcmirror.org/content/repositories/releases/"
+            credentials {
+                username System.getenv("USERNAME")
+                password System.getenv("PASSWORD")
+            }
+        }
+    }
 }

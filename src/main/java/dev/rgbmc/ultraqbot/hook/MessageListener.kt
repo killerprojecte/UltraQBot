@@ -51,4 +51,9 @@ class MessageListener : SubscribeListener {
     fun onGroupTempMessage(event: GroupTempMessageEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupTempMessageEvent(event))
     }
+
+    @SubscribeHandler
+    fun onNewFriendRequest(event: NewFriendRequestEvent) {
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.NewFriendRequestEvent(event))
+    }
 }

@@ -1,4 +1,4 @@
-package flyproject.ultraqbot.utils;
+package dev.rgbmc.ultraqbot.utils;
 
 public enum QPermission {
     OWNER,

@@ -1,6 +1,6 @@
-package flyproject.ultraqbot
+package dev.rgbmc.ultraqbot
 
-import flyproject.ultraqbot.hook.MiraiHttp
+import dev.rgbmc.ultraqbot.hook.MiraiHttp
 import org.bukkit.plugin.java.JavaPlugin
 
 class UltraQBot : JavaPlugin() {

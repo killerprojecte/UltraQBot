@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
-    id 'com.github.johnrengelman.shadow' version '7.1.0'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'flyproject'
@@ -24,15 +24,16 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.google.code.gson:gson:2.10.1'
     compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
-    implementation 'com.xbaimiao:mirai-http-sdk:1.0.4-alpha-1e59082@jar'
+    implementation 'com.xbaimiao:mirai-http-sdk:1.0.4-beta-ae896b5'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
-def targetJavaVersion = 1.8
+def targetJavaVersion = 17
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    sourceCompatibility = 1.8
+    sourceCompatibility = javaVersion
     targetCompatibility = javaVersion
     if (JavaVersion.current() < javaVersion) {
         toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
@@ -40,7 +41,7 @@ java {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 8
+    options.release = 8
 }
 
 processResources {
@@ -61,4 +62,13 @@ compileTestKotlin {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+shadowJar {
+    archiveClassifier = ""
+    relocate("com.google.gson", "dev.rgbmc.ultraqbot.libs.gson")
+    relocate("kotlin", "dev.rgbmc.ultraqbot.libs.kotlin")
+    relocate("kotlinx", "dev.rgbmc.ultraqbot.libs.kotlinx")
+    relocate("com.xbaimiao.mirai", "dev.rgbmc.ultraqbot.libs.mirai")
+    relocate("org.java_websocket", "dev.rgbmc.ultraqbot.libs.websocket")
 }

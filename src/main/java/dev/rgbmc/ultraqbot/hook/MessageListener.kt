@@ -77,4 +77,20 @@ class MessageListener : SubscribeListener {
     fun onBotMute(event: BotUnMuteEvent){
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotUnMuteEvent(event))
     }
+    @SubscribeHandler
+    fun onFriendRecall(event: FriendRecallEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.FriendRecallEvent(event))
+    }
+    @SubscribeHandler
+    fun onGroupAllowAnonymousChat(event: GroupAllowAnonymousChatEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupAllowAnonymousChatEvent(event))
+    }
+    @SubscribeHandler
+    fun onGroupAllowConfessTalk(event: GroupAllowConfessTalkEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupAllowConfessTalkEvent(event))
+    }
+    @SubscribeHandler
+    fun onGroupAllowMemberInvite(event: GroupAllowMemberInviteEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupAllowMemberInviteEvent(event))
+    }
 }

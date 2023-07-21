@@ -12,8 +12,8 @@ public class BotUnMuteEvent extends UltraEvent{
 
     public BotUnMuteEvent(com.xbaimiao.mirai.event.BotUnMuteEvent event) {
         this.origin = event;
-        operator= event.getOperator();
-        group= event.getGroup();
+        this.operator= event.getOperator();
+        this.group= event.getGroup();
     }
 
     public com.xbaimiao.mirai.event.BotUnMuteEvent getOrigin() {

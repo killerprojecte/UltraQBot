@@ -10,8 +10,8 @@ public class BotLeaveEventDisband extends UltraEvent{
 
     public BotLeaveEventDisband(com.xbaimiao.mirai.event.BotLeaveEventDisband event) {
         this.origin = event;
-        operator= event.getOperator();
-        group= event.getGroup();
+        this.operator= event.getOperator();
+        this.group= event.getGroup();
     }
 
 

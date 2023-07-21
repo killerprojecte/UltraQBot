@@ -10,8 +10,8 @@ public class BotLeaveEventKick extends UltraEvent{
 
     public BotLeaveEventKick(com.xbaimiao.mirai.event.BotLeaveEventKick event) {
         this.origin = event;
-        operator= event.getOperator();
-        group= event.getGroup();
+        this.operator= event.getOperator();
+        this.group= event.getGroup();
     }
 
     public com.xbaimiao.mirai.event.BotLeaveEventKick getOrigin() {

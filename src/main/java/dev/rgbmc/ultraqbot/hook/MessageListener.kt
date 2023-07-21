@@ -6,6 +6,7 @@ import com.xbaimiao.mirai.eventbus.SubscribeListener
 import dev.rgbmc.ultraqbot.events.BotLeaveActiveEvent
 import dev.rgbmc.ultraqbot.events.BotLeaveDisbandEvent
 import dev.rgbmc.ultraqbot.events.BotLeaveKickEvent
+import dev.rgbmc.ultraqbot.events.MemberLeaveEvent
 import org.bukkit.Bukkit
 
 class MessageListener : SubscribeListener {
@@ -42,12 +43,14 @@ class MessageListener : SubscribeListener {
 
     @SubscribeHandler
     fun onMemberKickLeave(event: MemberLeaveEventKick) {
-        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.MemberKickLeaveEvent(event))
+        Bukkit.getPluginManager()
+            .callEvent(dev.rgbmc.ultraqbot.events.MemberKickLeaveEvent(event) as MemberLeaveEvent<*>)
     }
 
     @SubscribeHandler
     fun onMemberQuitLeave(event: MemberLeaveEventQuit) {
-        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.MemberQuitLeaveEvent(event))
+        Bukkit.getPluginManager()
+            .callEvent(dev.rgbmc.ultraqbot.events.MemberQuitLeaveEvent(event) as MemberLeaveEvent<*>)
     }
 
     @SubscribeHandler
@@ -59,77 +62,94 @@ class MessageListener : SubscribeListener {
     fun onNewFriendRequest(event: NewFriendRequestEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.NewFriendRequestEvent(event))
     }
+
     @SubscribeHandler
-    fun onBotLeaveEventActive(event: BotLeaveEventActive){
+    fun onBotLeaveEventActive(event: BotLeaveEventActive) {
         Bukkit.getPluginManager().callEvent(BotLeaveActiveEvent(event))
     }
 
     @SubscribeHandler
-    fun onBotLeaveEventDisband(event: BotLeaveEventDisband){
+    fun onBotLeaveEventDisband(event: BotLeaveEventDisband) {
         Bukkit.getPluginManager().callEvent(BotLeaveDisbandEvent(event))
     }
+
     @SubscribeHandler
-    fun onBotLeaveEventKick(event: BotLeaveEventKick){
+    fun onBotLeaveEventKick(event: BotLeaveEventKick) {
         Bukkit.getPluginManager().callEvent(BotLeaveKickEvent(event))
     }
+
     @SubscribeHandler
-    fun onBotMute(event: BotMuteEvent){
+    fun onBotMute(event: BotMuteEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotMuteEvent(event))
     }
+
     @SubscribeHandler
-    fun onBotMute(event: BotUnMuteEvent){
+    fun onBotMute(event: BotUnMuteEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotUnMuteEvent(event))
     }
+
     @SubscribeHandler
-    fun onFriendRecall(event: FriendRecallEvent){
+    fun onFriendRecall(event: FriendRecallEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.FriendRecallEvent(event))
     }
+
     @SubscribeHandler
-    fun onGroupAllowAnonymousChat(event: GroupAllowAnonymousChatEvent){
+    fun onGroupAllowAnonymousChat(event: GroupAllowAnonymousChatEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupAllowAnonymousChatEvent(event))
     }
+
     @SubscribeHandler
-    fun onGroupAllowConfessTalk(event: GroupAllowConfessTalkEvent){
+    fun onGroupAllowConfessTalk(event: GroupAllowConfessTalkEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupAllowConfessTalkEvent(event))
     }
+
     @SubscribeHandler
-    fun onGroupAllowMemberInvite(event: GroupAllowMemberInviteEvent){
+    fun onGroupAllowMemberInvite(event: GroupAllowMemberInviteEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupAllowMemberInviteEvent(event))
     }
+
     @SubscribeHandler
-    fun onGroupEntranceAnnouncementChange(event: GroupEntranceAnnouncementChangeEvent){
+    fun onGroupEntranceAnnouncementChange(event: GroupEntranceAnnouncementChangeEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupEntranceAnnouncementChangeEvent(event))
     }
+
     @SubscribeHandler
-    fun onGroupMuteAll(event: GroupMuteAllEvent){
+    fun onGroupMuteAll(event: GroupMuteAllEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupMuteAllEvent(event))
     }
+
     @SubscribeHandler
-    fun onGroupNameChange(event: GroupNameChangeEvent){
+    fun onGroupNameChange(event: GroupNameChangeEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupNameChangeEvent(event))
     }
+
     @SubscribeHandler
-    fun onGroupPermissionChange(event: GroupPermissionChangeEvent){
+    fun onGroupPermissionChange(event: GroupPermissionChangeEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupPermissionChangeEvent(event))
     }
+
     @SubscribeHandler
-    fun onGroupRecall(event: GroupRecallEvent){
+    fun onGroupRecall(event: GroupRecallEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupRecallEvent(event))
     }
+
     @SubscribeHandler
-    fun onMemberMute(event: MemberMuteEvent){
+    fun onMemberMute(event: MemberMuteEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.MemberMuteEvent(event))
     }
+
     @SubscribeHandler
-    fun onMemberUnMute(event: MemberUnMuteEvent){
+    fun onMemberUnMute(event: MemberUnMuteEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.MemberUnMuteEvent(event))
     }
+
     @SubscribeHandler
-    fun onMemberPermissionChange(event: MemberPermissionChangeEvent){
+    fun onMemberPermissionChange(event: MemberPermissionChangeEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.MemberPermissionChangeEvent(event))
     }
+
     @SubscribeHandler
-    fun onNudge(event: NudgeEvent){
+    fun onNudge(event: NudgeEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.NudgeEvent(event))
     }
 }

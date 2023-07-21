@@ -3,7 +3,7 @@ package dev.rgbmc.ultraqbot.events;
 import com.xbaimiao.mirai.entity.Group;
 import com.xbaimiao.mirai.entity.MemberFriend;
 
-public class GroupEntranceAnnouncementChangeEvent extends UltraEvent{
+public class GroupEntranceAnnouncementChangeEvent extends UltraEvent {
     private final com.xbaimiao.mirai.event.GroupEntranceAnnouncementChangeEvent origin;
     private final MemberFriend operator;
     private final Group group;
@@ -13,10 +13,10 @@ public class GroupEntranceAnnouncementChangeEvent extends UltraEvent{
     public GroupEntranceAnnouncementChangeEvent(com.xbaimiao.mirai.event.GroupEntranceAnnouncementChangeEvent event) {
         super();
         this.origin = event;
-        this.group=event.getGroup();
-        this.current=event.getCurrent();
-        this.stringOrigin=event.getOrigin();
-        this.operator=event.getOperator();
+        this.group = event.getGroup();
+        this.current = event.getCurrent();
+        this.stringOrigin = event.getOrigin();
+        this.operator = event.getOperator();
     }
 
     public com.xbaimiao.mirai.event.GroupEntranceAnnouncementChangeEvent getOrigin() {

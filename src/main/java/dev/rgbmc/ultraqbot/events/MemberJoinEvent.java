@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class MemberJoinEvent extends UltraEvent {
     private final com.xbaimiao.mirai.event.MemberJoinEvent origin;
+
     public MemberJoinEvent(com.xbaimiao.mirai.event.MemberJoinEvent origin) {
         super();
         this.origin = origin;

@@ -3,7 +3,7 @@ package dev.rgbmc.ultraqbot.events;
 import com.xbaimiao.mirai.entity.Group;
 import com.xbaimiao.mirai.entity.MemberFriend;
 
-public class GroupAllowAnonymousChatEvent extends UltraEvent{
+public class GroupAllowAnonymousChatEvent extends UltraEvent {
     private final com.xbaimiao.mirai.event.GroupAllowAnonymousChatEvent origin;
     private final MemberFriend operator;
     private final Group group;
@@ -13,10 +13,10 @@ public class GroupAllowAnonymousChatEvent extends UltraEvent{
     public GroupAllowAnonymousChatEvent(com.xbaimiao.mirai.event.GroupAllowAnonymousChatEvent event) {
         super();
         this.origin = event;
-        this.operator= event.getOperator();
-        this.group= event.getGroup();
-        this.current= event.getCurrent();
-        this.booleanOrigin= event.getOrigin();
+        this.operator = event.getOperator();
+        this.group = event.getGroup();
+        this.current = event.getCurrent();
+        this.booleanOrigin = event.getOrigin();
     }
 
     public com.xbaimiao.mirai.event.GroupAllowAnonymousChatEvent getOrigin() {

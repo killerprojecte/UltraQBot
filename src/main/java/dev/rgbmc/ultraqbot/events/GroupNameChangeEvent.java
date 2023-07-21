@@ -3,7 +3,7 @@ package dev.rgbmc.ultraqbot.events;
 import com.xbaimiao.mirai.entity.Group;
 import com.xbaimiao.mirai.entity.MemberFriend;
 
-public class GroupNameChangeEvent extends UltraEvent{
+public class GroupNameChangeEvent extends UltraEvent {
     private final com.xbaimiao.mirai.event.GroupNameChangeEvent origin;
     private final MemberFriend operator;
     private final Group group;
@@ -13,10 +13,10 @@ public class GroupNameChangeEvent extends UltraEvent{
     public GroupNameChangeEvent(com.xbaimiao.mirai.event.GroupNameChangeEvent event) {
         super();
         this.origin = event;
-        this.group=event.getGroup();
-        this.current=event.getCurrent();
-        this.stringOrigin=event.getOrigin();
-        this.operator=event.getOperator();
+        this.group = event.getGroup();
+        this.current = event.getCurrent();
+        this.stringOrigin = event.getOrigin();
+        this.operator = event.getOperator();
     }
 
     public com.xbaimiao.mirai.event.GroupNameChangeEvent getOrigin() {

@@ -2,23 +2,18 @@ package dev.rgbmc.ultraqbot.events;
 
 import com.xbaimiao.mirai.entity.Group;
 import com.xbaimiao.mirai.entity.MemberFriend;
-import com.xbaimiao.mirai.message.MessageSource;
 import com.xbaimiao.mirai.message.component.BaseComponent;
 import com.xbaimiao.mirai.packet.impl.group.MessageRecallPacket;
 
 
-public class GroupMessageEvent extends UltraEvent {
+public class GroupMessageEvent extends MessageEvent<com.xbaimiao.mirai.event.GroupMessageEvent> {
 
     private final Group group;
-
-    private final BaseComponent message;
-
     private final com.xbaimiao.mirai.event.GroupMessageEvent origin;
 
     public GroupMessageEvent(com.xbaimiao.mirai.event.GroupMessageEvent event) {
-        super();
+        super(event);
         this.group = event.getGroup();
-        this.message = event.getMessage();
         this.origin = event;
     }
 
@@ -26,36 +21,25 @@ public class GroupMessageEvent extends UltraEvent {
         return group;
     }
 
-    public String getMessage() {
-        return message.contentToString();
-    }
-
+    @Override
     public void response(String text) {
         group.sendMessage(text);
     }
 
+    @Override
     public void response(BaseComponent message) {
         group.sendMessage(message);
     }
 
+    @Override
     public void recall() {
-        MessageRecallPacket packet = new MessageRecallPacket(getSender().getId(), origin.getMessageSource().getMessageId());
-        packet.send().thenAcceptAsync(messageRecallPacket -> {});
+        MessageRecallPacket packet = new MessageRecallPacket(getGroup().getId(), origin.getMessageSource().getMessageId());
+        packet.send().thenAcceptAsync(messageRecallPacket -> {
+        });
     }
 
-    public MessageSource getMessageSource() {
-        return origin.getMessageSource();
-    }
-
-    public BaseComponent getRawMessage() {
-        return message;
-    }
-
+    @Override
     public MemberFriend getSender() {
         return origin.getSender();
-    }
-
-    public com.xbaimiao.mirai.event.GroupMessageEvent getOrigin() {
-        return origin;
     }
 }

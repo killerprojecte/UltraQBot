@@ -2,7 +2,7 @@ package dev.rgbmc.ultraqbot.events;
 
 import com.xbaimiao.mirai.entity.MemberFriend;
 
-public class FriendRecallEvent extends UltraEvent{
+public class FriendRecallEvent extends UltraEvent {
     private final com.xbaimiao.mirai.event.FriendRecallEvent origin;
     private final MemberFriend operator;
     private final long authorId;
@@ -12,10 +12,10 @@ public class FriendRecallEvent extends UltraEvent{
     public FriendRecallEvent(com.xbaimiao.mirai.event.FriendRecallEvent event) {
         super();
         this.origin = event;
-        this.operator=event.getOperator();
-        this.authorId= event.getAuthorId();
-        this.time=event.getTime();
-        this.messageId=event.getMessageId();
+        this.operator = event.getOperator();
+        this.authorId = event.getAuthorId();
+        this.time = event.getTime();
+        this.messageId = event.getMessageId();
     }
 
     public com.xbaimiao.mirai.event.FriendRecallEvent getOrigin() {

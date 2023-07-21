@@ -3,7 +3,7 @@ package dev.rgbmc.ultraqbot.events;
 import com.xbaimiao.mirai.entity.Group;
 import com.xbaimiao.mirai.entity.MemberFriend;
 
-public class GroupAllowMemberInviteEvent extends UltraEvent{
+public class GroupAllowMemberInviteEvent extends UltraEvent {
     private final com.xbaimiao.mirai.event.GroupAllowMemberInviteEvent origin;
     private final MemberFriend operator;
     private final Group group;
@@ -13,10 +13,10 @@ public class GroupAllowMemberInviteEvent extends UltraEvent{
     public GroupAllowMemberInviteEvent(com.xbaimiao.mirai.event.GroupAllowMemberInviteEvent event) {
         super();
         this.origin = event;
-        this.group=event.getGroup();
-        this.current=event.getCurrent();
-        this.booleanOrigin=event.getOrigin();
-        this.operator=event.getOperator();
+        this.group = event.getGroup();
+        this.current = event.getCurrent();
+        this.booleanOrigin = event.getOrigin();
+        this.operator = event.getOperator();
     }
 
     public com.xbaimiao.mirai.event.GroupAllowMemberInviteEvent getOrigin() {

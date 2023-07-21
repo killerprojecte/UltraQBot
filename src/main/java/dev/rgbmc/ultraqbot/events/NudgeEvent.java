@@ -2,13 +2,13 @@ package dev.rgbmc.ultraqbot.events;
 
 import com.xbaimiao.mirai.entity.MessageSubject;
 
-public class NudgeEvent extends UltraEvent{
+public class NudgeEvent extends UltraEvent {
     private final com.xbaimiao.mirai.event.NudgeEvent origin;
-    private final String action ;
-    private final long fromId ;
-    private final MessageSubject subject ;
-    private final long target ;
-    private final String suffix ;
+    private final String action;
+    private final long fromId;
+    private final MessageSubject subject;
+    private final long target;
+    private final String suffix;
 
 
     public NudgeEvent(com.xbaimiao.mirai.event.NudgeEvent event) {

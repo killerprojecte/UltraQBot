@@ -3,7 +3,7 @@ package dev.rgbmc.ultraqbot.events;
 import com.xbaimiao.mirai.entity.Group;
 import com.xbaimiao.mirai.entity.MemberFriend;
 
-public class BotMuteEvent extends UltraEvent{
+public class BotMuteEvent extends UltraEvent {
     private final com.xbaimiao.mirai.event.BotMuteEvent origin;
     private final MemberFriend operator;
     private final Group group;
@@ -12,9 +12,9 @@ public class BotMuteEvent extends UltraEvent{
     public BotMuteEvent(com.xbaimiao.mirai.event.BotMuteEvent event) {
         super();
         this.origin = event;
-        this.operator= event.getOperator();
-        this.group= event.getGroup();
-        this.durationSeconds=event.getDurationSeconds();
+        this.operator = event.getOperator();
+        this.group = event.getGroup();
+        this.durationSeconds = event.getDurationSeconds();
     }
 
     public com.xbaimiao.mirai.event.BotMuteEvent getOrigin() {

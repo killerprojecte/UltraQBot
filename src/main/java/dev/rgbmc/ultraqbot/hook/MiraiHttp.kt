@@ -18,7 +18,8 @@ object MiraiHttp {
         bot = WebSocketBot(wsInfo).connect()
         bot.join()
         bot.eventChancel.subscribe(listener)
-        Bukkit.getScheduler().runTaskTimerAsynchronously(UltraQBot.instance,
+        Bukkit.getScheduler().runTaskTimerAsynchronously(
+            UltraQBot.instance,
             Runnable {
                 bot.eventChancel.unsubscribe(listener)
                 bot.disable()

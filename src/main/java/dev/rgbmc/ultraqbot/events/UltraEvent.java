@@ -6,10 +6,11 @@ import org.bukkit.event.HandlerList;
 
 public class UltraEvent extends Event {
 
+    private static final HandlerList handlers = new HandlerList();
+
     public UltraEvent() {
         super(true);
     }
-    private static final HandlerList handlers = new HandlerList();
 
     public static HandlerList getHandlerList() {
         return handlers;

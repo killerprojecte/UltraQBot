@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class BotInvitedJoinGroupRequestEvent extends UltraEvent {
     private final com.xbaimiao.mirai.event.BotInvitedJoinGroupRequestEvent origin;
+
     public BotInvitedJoinGroupRequestEvent(com.xbaimiao.mirai.event.BotInvitedJoinGroupRequestEvent origin) {
         super();
         this.origin = origin;

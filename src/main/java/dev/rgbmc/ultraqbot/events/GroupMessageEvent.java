@@ -5,9 +5,7 @@ import com.xbaimiao.mirai.entity.MemberFriend;
 import com.xbaimiao.mirai.message.MessageSource;
 import com.xbaimiao.mirai.message.component.BaseComponent;
 import com.xbaimiao.mirai.packet.impl.group.MessageRecallPacket;
-import dev.rgbmc.ultraqbot.hook.MiraiHttp;
 
-import java.util.concurrent.CompletableFuture;
 
 public class GroupMessageEvent extends UltraEvent {
 

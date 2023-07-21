@@ -56,4 +56,25 @@ class MessageListener : SubscribeListener {
     fun onNewFriendRequest(event: NewFriendRequestEvent) {
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.NewFriendRequestEvent(event))
     }
+    @SubscribeHandler
+    fun onBotLeaveEventActive(event: BotLeaveEventActive){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotLeaveEventActive(event))
+    }
+
+    @SubscribeHandler
+    fun onBotLeaveEventDisband(event: BotLeaveEventDisband){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotLeaveEventDisband(event))
+    }
+    @SubscribeHandler
+    fun onBotLeaveEventKick(event: BotLeaveEventKick){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotLeaveEventKick(event))
+    }
+    @SubscribeHandler
+    fun onBotMute(event: BotMuteEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotMuteEvent(event))
+    }
+    @SubscribeHandler
+    fun onBotMute(event: BotUnMuteEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotUnMuteEvent(event))
+    }
 }

@@ -1,6 +1,5 @@
 package dev.rgbmc.ultraqbot.events;
 
-import com.xbaimiao.mirai.entity.Friend;
 import com.xbaimiao.mirai.entity.Group;
 import com.xbaimiao.mirai.entity.MemberFriend;
 import com.xbaimiao.mirai.message.MessageSource;

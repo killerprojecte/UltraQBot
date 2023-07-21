@@ -1,7 +1,6 @@
 package dev.rgbmc.ultraqbot.events;
 
 import com.xbaimiao.mirai.entity.Group;
-import dev.rgbmc.ultraqbot.UltraQBot;
 import dev.rgbmc.ultraqbot.hook.MiraiHttp;
 import dev.rgbmc.ultraqbot.utils.MemberCache;
 

@@ -11,6 +11,7 @@ public class GroupMuteAllEvent extends UltraEvent{
     private final boolean booleanOrigin;
 
     public GroupMuteAllEvent(com.xbaimiao.mirai.event.GroupMuteAllEvent event) {
+        super();
         this.origin = event;
         this.group=event.getGroup();
         this.current=event.getCurrent();

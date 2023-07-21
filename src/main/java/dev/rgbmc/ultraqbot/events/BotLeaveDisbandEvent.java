@@ -3,23 +3,25 @@ package dev.rgbmc.ultraqbot.events;
 import com.xbaimiao.mirai.entity.Group;
 import com.xbaimiao.mirai.entity.MemberFriend;
 
-public class BotLeaveEventKick extends UltraEvent{
-    private final com.xbaimiao.mirai.event.BotLeaveEventKick origin;
+public class BotLeaveDisbandEvent extends UltraEvent{
+    private final com.xbaimiao.mirai.event.BotLeaveEventDisband origin;
     private final MemberFriend operator;
     private final Group group;
 
-    public BotLeaveEventKick(com.xbaimiao.mirai.event.BotLeaveEventKick event) {
+    public BotLeaveDisbandEvent(com.xbaimiao.mirai.event.BotLeaveEventDisband event) {
+        super();
         this.origin = event;
         this.operator= event.getOperator();
         this.group= event.getGroup();
     }
 
-    public com.xbaimiao.mirai.event.BotLeaveEventKick getOrigin() {
-        return origin;
-    }
 
     public Group getGroup() {
         return group;
+    }
+
+    public com.xbaimiao.mirai.event.BotLeaveEventDisband getOrigin() {
+        return origin;
     }
 
     public MemberFriend getOperator() {

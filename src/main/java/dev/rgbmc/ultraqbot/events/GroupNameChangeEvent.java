@@ -11,6 +11,7 @@ public class GroupNameChangeEvent extends UltraEvent{
     private final String stringOrigin;
 
     public GroupNameChangeEvent(com.xbaimiao.mirai.event.GroupNameChangeEvent event) {
+        super();
         this.origin = event;
         this.group=event.getGroup();
         this.current=event.getCurrent();

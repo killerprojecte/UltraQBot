@@ -11,6 +11,7 @@ public class GroupAllowAnonymousChatEvent extends UltraEvent{
     private final boolean booleanOrigin;
 
     public GroupAllowAnonymousChatEvent(com.xbaimiao.mirai.event.GroupAllowAnonymousChatEvent event) {
+        super();
         this.origin = event;
         this.operator= event.getOperator();
         this.group= event.getGroup();

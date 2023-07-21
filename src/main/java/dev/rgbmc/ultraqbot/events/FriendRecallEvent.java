@@ -10,6 +10,7 @@ public class FriendRecallEvent extends UltraEvent{
     private final int messageId;
 
     public FriendRecallEvent(com.xbaimiao.mirai.event.FriendRecallEvent event) {
+        super();
         this.origin = event;
         this.operator=event.getOperator();
         this.authorId= event.getAuthorId();

@@ -12,6 +12,7 @@ public class GroupRecallEvent extends UltraEvent{
     private final int messageId;
 
     public GroupRecallEvent(com.xbaimiao.mirai.event.GroupRecallEvent event) {
+        super();
         this.origin = event;
         this.operator=event.getOperator();
         this.authorId= event.getAuthorId();

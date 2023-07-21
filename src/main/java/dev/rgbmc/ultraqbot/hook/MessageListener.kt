@@ -93,4 +93,24 @@ class MessageListener : SubscribeListener {
     fun onGroupAllowMemberInvite(event: GroupAllowMemberInviteEvent){
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupAllowMemberInviteEvent(event))
     }
+    @SubscribeHandler
+    fun onGroupEntranceAnnouncementChange(event: GroupEntranceAnnouncementChangeEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupEntranceAnnouncementChangeEvent(event))
+    }
+    @SubscribeHandler
+    fun onGroupMuteAll(event: GroupMuteAllEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupMuteAllEvent(event))
+    }
+    @SubscribeHandler
+    fun onGroupNameChange(event: GroupNameChangeEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupNameChangeEvent(event))
+    }
+    @SubscribeHandler
+    fun onGroupPermissionChange(event: GroupPermissionChangeEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupPermissionChangeEvent(event))
+    }
+    @SubscribeHandler
+    fun onGroupRecall(event: GroupRecallEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupRecallEvent(event))
+    }
 }

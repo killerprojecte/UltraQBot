@@ -3,10 +3,10 @@ package dev.rgbmc.ultraqbot.events;
 
 import com.xbaimiao.mirai.entity.Group;
 
-public class BotLeaveEventActive extends UltraEvent{
+public class BotLeaveActiveEvent extends UltraEvent{
     private final com.xbaimiao.mirai.event.BotLeaveEventActive origin;
     private final Group group;
-    public BotLeaveEventActive(com.xbaimiao.mirai.event.BotLeaveEventActive event){
+    public BotLeaveActiveEvent(com.xbaimiao.mirai.event.BotLeaveEventActive event){
         super();
         this.origin=event;
         this.group= event.getGroup();

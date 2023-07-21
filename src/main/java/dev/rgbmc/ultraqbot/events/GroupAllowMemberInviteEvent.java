@@ -11,6 +11,7 @@ public class GroupAllowMemberInviteEvent extends UltraEvent{
     private final boolean booleanOrigin;
 
     public GroupAllowMemberInviteEvent(com.xbaimiao.mirai.event.GroupAllowMemberInviteEvent event) {
+        super();
         this.origin = event;
         this.group=event.getGroup();
         this.current=event.getCurrent();

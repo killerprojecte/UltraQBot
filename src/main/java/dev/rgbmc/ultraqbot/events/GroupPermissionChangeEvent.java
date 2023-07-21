@@ -9,6 +9,7 @@ public class GroupPermissionChangeEvent extends UltraEvent{
     private final String stringOrigin;
 
     public GroupPermissionChangeEvent(com.xbaimiao.mirai.event.GroupPermissionChangeEvent event) {
+        super();
         this.origin = event;
         this.group=event.getGroup();
         this.current=event.getCurrent();

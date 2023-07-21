@@ -10,6 +10,7 @@ public class GroupAllowConfessTalkEvent extends UltraEvent{
     private final boolean byBot;
 
     public GroupAllowConfessTalkEvent(com.xbaimiao.mirai.event.GroupAllowConfessTalkEvent event) {
+        super();
         this.origin = event;
         this.group=event.getGroup();
         this.current=event.getCurrent();

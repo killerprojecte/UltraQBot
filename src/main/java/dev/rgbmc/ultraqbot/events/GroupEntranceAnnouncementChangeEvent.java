@@ -11,6 +11,7 @@ public class GroupEntranceAnnouncementChangeEvent extends UltraEvent{
     private final String stringOrigin;
 
     public GroupEntranceAnnouncementChangeEvent(com.xbaimiao.mirai.event.GroupEntranceAnnouncementChangeEvent event) {
+        super();
         this.origin = event;
         this.group=event.getGroup();
         this.current=event.getCurrent();

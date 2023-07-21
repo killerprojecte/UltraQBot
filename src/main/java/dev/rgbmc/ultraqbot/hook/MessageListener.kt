@@ -3,6 +3,9 @@ package dev.rgbmc.ultraqbot.hook
 import com.xbaimiao.mirai.event.*
 import com.xbaimiao.mirai.eventbus.SubscribeHandler
 import com.xbaimiao.mirai.eventbus.SubscribeListener
+import dev.rgbmc.ultraqbot.events.BotLeaveActiveEvent
+import dev.rgbmc.ultraqbot.events.BotLeaveDisbandEvent
+import dev.rgbmc.ultraqbot.events.BotLeaveKickEvent
 import org.bukkit.Bukkit
 
 class MessageListener : SubscribeListener {
@@ -58,16 +61,16 @@ class MessageListener : SubscribeListener {
     }
     @SubscribeHandler
     fun onBotLeaveEventActive(event: BotLeaveEventActive){
-        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotLeaveEventActive(event))
+        Bukkit.getPluginManager().callEvent(BotLeaveActiveEvent(event))
     }
 
     @SubscribeHandler
     fun onBotLeaveEventDisband(event: BotLeaveEventDisband){
-        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotLeaveEventDisband(event))
+        Bukkit.getPluginManager().callEvent(BotLeaveDisbandEvent(event))
     }
     @SubscribeHandler
     fun onBotLeaveEventKick(event: BotLeaveEventKick){
-        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.BotLeaveEventKick(event))
+        Bukkit.getPluginManager().callEvent(BotLeaveKickEvent(event))
     }
     @SubscribeHandler
     fun onBotMute(event: BotMuteEvent){
@@ -112,5 +115,21 @@ class MessageListener : SubscribeListener {
     @SubscribeHandler
     fun onGroupRecall(event: GroupRecallEvent){
         Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.GroupRecallEvent(event))
+    }
+    @SubscribeHandler
+    fun onMemberMute(event: MemberMuteEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.MemberMuteEvent(event))
+    }
+    @SubscribeHandler
+    fun onMemberUnMute(event: MemberUnMuteEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.MemberUnMuteEvent(event))
+    }
+    @SubscribeHandler
+    fun onMemberPermissionChange(event: MemberPermissionChangeEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.MemberPermissionChangeEvent(event))
+    }
+    @SubscribeHandler
+    fun onNudge(event: NudgeEvent){
+        Bukkit.getPluginManager().callEvent(dev.rgbmc.ultraqbot.events.NudgeEvent(event))
     }
 }

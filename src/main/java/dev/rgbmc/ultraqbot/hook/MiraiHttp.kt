@@ -24,7 +24,7 @@ object MiraiHttp {
                 bot.eventChancel.unsubscribe(listener)
                 bot.disable()
                 if (UltraQBot.instance.config.getBoolean("reconnect_notify")) {
-                    println("UltraQBot 已重新连接服务器")
+                    UltraQBot.instance.logger.info("UltraQBot 已重新连接服务器")
                 }
                 bot = WebSocketBot(wsInfo).connect()
                 bot.join()

@@ -1,6 +1,7 @@
 package dev.rgbmc.ultraqbot.events;
 
 import com.xbaimiao.mirai.entity.Group;
+import com.xbaimiao.mirai.packet.impl.group.InviteBotRequestResponsePacket;
 import dev.rgbmc.ultraqbot.hook.MiraiHttp;
 import dev.rgbmc.ultraqbot.utils.MemberCache;
 
@@ -36,5 +37,18 @@ public class BotInvitedJoinGroupRequestEvent extends UltraEvent {
 
     public com.xbaimiao.mirai.event.BotInvitedJoinGroupRequestEvent getOrigin() {
         return origin;
+    }
+
+    public void accept(String message) {
+        operate(message, InviteBotRequestResponsePacket.Operate.ACCEPT);
+    }
+
+    public void deny(String message) {
+        operate(message, InviteBotRequestResponsePacket.Operate.DENY);
+    }
+
+    public void operate(String message, InviteBotRequestResponsePacket.Operate operate) {
+        new InviteBotRequestResponsePacket(origin, message, operate).send().thenAcceptAsync(packet -> {
+        });
     }
 }

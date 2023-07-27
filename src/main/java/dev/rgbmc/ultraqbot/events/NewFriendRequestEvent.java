@@ -1,5 +1,7 @@
 package dev.rgbmc.ultraqbot.events;
 
+import com.xbaimiao.mirai.packet.impl.group.NewFriendRequestResponsePacket;
+
 public class NewFriendRequestEvent extends UltraEvent {
     private final com.xbaimiao.mirai.event.NewFriendRequestEvent origin;
 
@@ -30,5 +32,26 @@ public class NewFriendRequestEvent extends UltraEvent {
 
     public com.xbaimiao.mirai.event.NewFriendRequestEvent getOrigin() {
         return origin;
+    }
+
+    public void accept(String response) {
+        operate(response, NewFriendRequestResponsePacket.Operate.ACCEPT);
+    }
+
+    public void deny(String response) {
+        deny(response, false);
+    }
+
+    public void deny(String response, boolean block) {
+        if (block) {
+            operate(response, NewFriendRequestResponsePacket.Operate.DENY_AND_BLOCK);
+        } else {
+            operate(response, NewFriendRequestResponsePacket.Operate.DENY);
+        }
+    }
+
+    public void operate(String response, NewFriendRequestResponsePacket.Operate operate) {
+        new NewFriendRequestResponsePacket(origin, response, operate).send().thenAcceptAsync(packet -> {
+        });
     }
 }

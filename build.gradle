@@ -6,8 +6,14 @@ plugins {
     id 'java-library'
 }
 
+ext {
+    bigVersion = '1.0.0'
+    releaseType = 'dev'
+    // Development (dev); Release (release); Snapshots / Pre-Release (snapshots)
+}
+
 group = 'flyproject'
-version = '1.0.0'
+version = version()
 
 repositories {
     mavenCentral()
@@ -99,4 +105,29 @@ publishing {
             }
         }
     }
+}
+
+def String id() {
+    Process process = Runtime.getRuntime().exec("git rev-parse --short HEAD")
+    BufferedReader reader = new BufferedReader(new InputStreamReader(process.inputStream))
+    String cid = reader.readLine()
+    if (cid==null) {
+        println("Make sure you are using a repository fetched via Git before trying to build")
+        System.exit(0)
+    }
+    println("Commit ID: " + cid)
+    return cid;
+}
+
+def String version() {
+    StringBuilder builder = new StringBuilder()
+    builder.append(bigVersion)
+    if (!releaseType.equalsIgnoreCase("release")) {
+        builder.append("-")
+        builder.append(releaseType)
+        builder.append("-")
+        builder.append(id())
+    }
+    println("Current Version: " + builder.toString())
+    return builder.toString()
 }

@@ -5,6 +5,8 @@ import org.bukkit.plugin.java.JavaPlugin
 
 class UltraQBot : JavaPlugin() {
     override fun onEnable() {
+        getLogger().info("Current Version: " + getDescription().getVersion())
+        getLogger().info("UltraQBot working in development")
         instance = this
         saveDefaultConfig()
         MiraiHttp.run()
